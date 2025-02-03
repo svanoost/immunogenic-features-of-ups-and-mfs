@@ -1,0 +1,55 @@
+L_ID	PAT_ID	PATIENT_NR	diagnosis	therapy	RT	Other_treat	margin	size	sex	age	site	depth	grade	Tumor	Fibrosis	Necrosis	response	EORTC_response	margin_group	location_group
+L7283	3426	1	USTS	Surgery+RT	Neoadjuvant	NA	R0	6.2	F	80	Pelvis	deep	high	90	10	0	Poor	E	R0	Lower extremities
+L7284	3521	2	USTS	Surgery+RT	Neoadjuvant	NA	R0	7.6	F	76	Upper Leg	deep	high	35	45	20	Poor	D	R0	Lower extremities
+L7285	4112	3	USTS	Surgery+RT	Neoadjuvant	NA	R0	12.1	M	45	Shoulder	deep	high	15	65	20	Poor	D	R0	Upper extremities
+L7287	4127	4	USTS	Surgery+RT	Neoadjuvant	NA	R0	4.5	M	78	Upper Leg	deep	high	15	85	0	Poor	D	R0	Lower extremities
+L7288	4183	5	USTS	Surgery+RT	Neoadjuvant	NA	R0	7.1	F	67	Upper Leg	deep	high	1	5	94	Good	B	R0	Lower extremities
+L7289	4341	6	USTS	Surgery+RT	Neoadjuvant	NA	R0	4	F	79	Upper Leg	deep	high	50	40	10	Poor	D	R0	Lower extremities
+L7290	4417	7	USTS	Surgery+RT	Neoadjuvant	NA	R0	16	F	53	Upper Leg	deep	high	40	40	20	Poor	D	R0	Lower extremities
+L7291	4515	8	USTS	Surgery+RT	Neoadjuvant	NA	R0	9.9	M	52	Upper Leg	deep	high	15	5	80	Poor	D	R0	Lower extremities
+L7292	4527	9	USTS	Surgery+RT	Neoadjuvant	NA	R0	12.8	F	78	Upper Leg	deep	high	2	29	69	Good	C	R0	Lower extremities
+L7293	4540	10	USTS	Surgery+RT	Neoadjuvant	NA	R0	8.3	M	78	Upper Leg	deep	high	1	90	9	Good	B	R0	Lower extremities
+L7295	4598	11	USTS	Surgery+RT	Neoadjuvant	NA	R0	9.9	F	61	Upper Leg	deep	high	5	80	15	Good	C	R0	Lower extremities
+L7296	4628	12	USTS	Surgery+RT	Neoadjuvant	NA	R0	10	F	80	Upper Leg	deep	high	1	90	9	Good	B	R0	Lower extremities
+L7297	4686	13	USTS	Surgery+RT	Neoadjuvant	NA	R0	9.5	M	72	Upper Leg	deep	high	20	40	40	Poor	D	R0	Lower extremities
+L7298	4939	14	USTS	Surgery+RT	Neoadjuvant	NA	R0	18.6	M	50	Lower Leg	deep	high	2	15	83	Good	C	R0	Lower extremities
+L7299	4943	15	USTS	Surgery+RT	Neoadjuvant	NA	R0	6.8	M	40	Lower Leg	deep	high	50	40	10	Poor	D	R0	Lower extremities
+L7300	5118	16	USTS	Surgery+RT	Neoadjuvant	NA	R0	5.3	M	78	Flank	deep	high	30	40	30	Poor	D	R0	Other
+L8000	5586	18	USTS	Surgery+RT	Neoadjuvant	NA	R0	14	M	68	Shoulder	deep	high	10	55	35	Poor	C	R0	Upper extremities
+L8116	2441	19	USTS	Surgery+RT	Neoadjuvant	NA	R0	5	M	70	Upper Arm	deep	high	70	15	15	Poor	E	R0	Upper extremities
+L8118	5210	21	USTS	Surgery+RT	Neoadjuvant	NA	R0	5.7	F	87	Lower Leg	deep	high	1	99	0	Good	B	R0	Lower extremities
+L8119	5861	22	USTS	Surgery+RT	Neoadjuvant	NA	R0	20	M	71	Upper Leg	deep	high	15	75	10	Poor	D	R0	Lower extremities
+L8121	5862	23	USTS	Surgery+RT	Neoadjuvant	NA	R0	3.9	M	40	Upper Arm	deep	high	50	40	10	Poor	D	R0	Upper extremities
+L8123	2919	24	USTS	Surgery+RT	Neoadjuvant	NA	R0	27	F	49	Hip	deep	high	65	10	25	Poor	E	R0	Lower extremities
+L8124	2532	25	USTS	Surgery+RT	Neoadjuvant	NA	R0	10	M	61	Upper Leg	deep	high	1	70	29	Good	B	R0	Lower extremities
+L8125	4528	26	USTS	Surgery+RT	Neoadjuvant	NA	R0	8.8	M	67	Upper Leg	deep	high	1	50	49	Good	B	R0	Lower extremities
+L8126	5442	27	USTS	Surgery+RT	Neoadjuvant	NA	R0	3.9	F	41	Lower Leg	deep	high	10	60	30	Poor	C	R0	Lower extremities
+L8127	5863	28	USTS	Surgery+RT	Neoadjuvant	NA	R0	7	F	70	Upper Leg	deep	high	5	95	0	Good	C	R0	Lower extremities
+L8131	3541	30	USTS	Surgery+RT	Neoadjuvant	NA	R0	9	F	79	Upper Leg	deep	high	1	70	29	Good	B	R0	Lower extremities
+L8132	5403	31	USTS	Surgery+RT	Neoadjuvant	NA	R0	4.8	M	57	Upper Leg	deep	high	10	70	20	Poor	C	R0	Lower extremities
+L8133	4947	32	USTS	Surgery+RT	Neoadjuvant	NA	R0	14	M	57	Upper Leg	deep	high	40	20	40	Poor	D	R0	Lower extremities
+L8137	5866	35	USTS	Surgery+RT	Neoadjuvant	NA	No margin	NA	F	48	Face	deep	high	30	35	35	Poor	D	NA	Other
+L7302	4118	45	MFS	Surgery+RT	Neoadjuvant	NA	R0	4.6	M	63	Lower Arm	superficial	high	80	7.5	12.5	Poor	E	R0	Upper extremities
+L6248	4329	46	MFS	Surgery+RT	Neoadjuvant	NA	R2	14	M	77	Shoulder	deep	high	90	10	0	Poor	E	R1/R2	Other
+L7303	4554	47	MFS	Surgery+RT	Neoadjuvant	NA	R0	12.5	M	77	Upper Leg	deep	high	60	15	25	Poor	E	R0	Lower extremities
+L7305	4593	48	MFS	Surgery+RT	Neoadjuvant	pazopanib	R0	7.2	M	24	Flank	superficial	high	60	20	20	Poor	E	R0	Other
+L7308	4792	51	MFS	Surgery+RT	Neoadjuvant	NA	R0	13.8	M	69	Chest	deep	high	70	15	15	Poor	E	R0	Other
+L7309	4806	52	MFS	Surgery+RT	Neoadjuvant	NA	R0	6.1	M	60	Upper Leg	deep	high	70	30	0	Poor	E	R0	Lower extremities
+L7310	4865	53	MFS	Surgery+RT	Neoadjuvant	NA	R0	2.9	M	58	Chest	deep	high	15	85	0	Poor	D	R0	Other
+L6898	5006	54	MFS	Surgery+RT	Neoadjuvant	NA	R0	11.3	F	67	Lower Arm	superficial	high	60	40	0	Poor	E	R0	Upper extremities
+L7312	5105	55	MFS	Surgery+RT	Neoadjuvant	NA	R0	12.4	F	65	Upper Arm	superficial	high	50	20	30	Poor	D	R0	Upper extremities
+L8448	3094	56	MFS	Surgery+RT	Neoadjuvant	NA	R0	9	M	79	Upper Leg	deep	high	60	10	30	Poor	E	R0	Lower extremities
+L8449	3435	57	MFS	Surgery+RT	Neoadjuvant	NA	R0	15	M	68	Upper Arm	deep	high	15	15	70	Poor	D	R0	Lower extremities
+L8450	3537	58	MFS	Surgery+RT	Neoadjuvant	NA	R1	30	F	75	Upper Leg	deep	high	5	25	70	Good	C	R1/R2	Lower extremities
+L5057	3566	59	MFS	Surgery+RT	Neoadjuvant	NA	R0	12	F	73	Buttock	superficial	high	60	15	25	Poor	E	R0	Lower extremities
+L8451	3905	60	MFS	Surgery+RT	Neoadjuvant	NA	R1	10	F	81	Lower Arm	deep	high	60	25	15	Poor	E	R1/R2	Upper extremities
+L8452	4079	61	MFS	Surgery+RT	Neoadjuvant	NA	R0	25	F	78	Upper Leg	deep	high	1	10	89	Good	B	R0	Lower extremities
+L8453	4621	62	MFS	Surgery+RT	Neoadjuvant	NA	R0	3	F	70	Lower Leg	superficial	high	30	60	10	Poor	D	R0	Lower extremities
+L8454	5072	63	MFS	Surgery+RT	Neoadjuvant	NA	R0	20	M	62	Upper Leg	deep	high	5	10	85	Good	C	R0	Lower extremities
+L8455	5247	64	MFS	Surgery+RT	Neoadjuvant	NA	R0	3.6	F	70	Lower Leg	superficial	high	30	70	0	Poor	D	R0	Lower extremities
+L8456	5405	65	MFS	Surgery+RT	Neoadjuvant	NA	R0	16	F	60	Upper Leg	deep	high	5	0	95	Good	C	R0	Lower extremities
+L8457	5415	66	MFS	Surgery+RT	Neoadjuvant	NA	R0	10	M	67	Hip	superficial	high	30	0	70	Poor	D	R0	Lower extremities
+L8458	5426	67	MFS	Surgery+RT	Neoadjuvant	NA	R0	6	M	63	Upper Leg	deep	high	85	15	0	Poor	E	R0	Lower extremities
+L8459	5578	68	MFS	Surgery+RT	Neoadjuvant	NA	R0	4	M	72	Upper Leg	superficial	high	80	10	10	Poor	E	R0	Lower extremities
+L8460	5701	69	MFS	Surgery+RT	Neoadjuvant	NA	R0	10	F	72	Lower Leg	deep	high	49	0	51	Poor	D	R0	Lower extremities
+L8461	5775	70	MFS	Surgery+RT	Neoadjuvant	NA	R0	9	M	76	Hip	deep	high	5	65	30	Good	C	R0	Lower extremities
