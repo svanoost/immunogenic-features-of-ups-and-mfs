@@ -13,5 +13,5 @@ This is the repository for the scripts used in the study "Divergent Therapeutic 
 S. van Oost, D.M. Meijer, Z.B. Erdem, M.E. IJsselsteijn, J. Roelands, S. Lam, M.S. Boejharat, B.E.M.W. van den Akker, R. van der Breggen, I.H. Briaire-de Bruijn, L.J.A.C. Hawinkels, A.A. Kruiswijk, M. van der Ploeg, P.M. Wijers-Koster, R.L. Haas, M.A.J. van den Sande, N.F.C.C. de Miranda, J.V.M.G. Bovee
 
 ## Data availability
-RNAseq data (GEO): tbd
-Imaging mass cytometry data (BioStudies): tbd
+RNAseq data (GEO): GSE285944
+Imaging mass cytometry data (BioStudies): S-BIAD1555
