@@ -3,7 +3,6 @@ This is the repository for the scripts used in the study "Divergent Therapeutic 
 
 ## This repository has the following structure:
 1. input_files - .tsv & .RData files containing the necessary input to perform the analysis e.g. annotation files and processed data files.
-2. output_files - .txt files containing the results from the performed analyses. e.g. statistics & assigned groups
 2. RNAseq - scripts used for analysing the RNA sequencing data & generating the figures. See GEO link below for raw data of USTS and myxofibrosarcomas.
 3. IMC - scripts used for analysing the imaging mass cytometry data & generating the figures. See BioStudies link for raw data.
 4. IF - scripts used for analysing the multispectral immunofluorescence & double immunohistochemical data, as well as generating the figures.
