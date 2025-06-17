@@ -15,11 +15,11 @@ master.location <- setwd(master.location)
 
 #### Load data ####
 # Load cell counts from the IF and IHC stainings
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IF_cell_counts_boxplots.RData")
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IF_cell_counts_heatmap.RData")
+load("../analysis_files/IF_cell_counts_boxplots.RData")
+load("../analysis_files/IF_cell_counts_heatmap.RData")
 
 # Load T cell counts from IMC vs IF for correlation
-IMC_IF <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/IMC_vs_IF_Tcell_counts.tsv", header = TRUE)
+IMC_IF <- read.delim("../input_files/IMC_vs_IF_Tcell_counts.tsv", header = TRUE)
 
 #### Figure 3A ####
 # Plot the boxplots with the T cells counts, % of PD-1 positivity and the macrophage counts
@@ -36,7 +36,7 @@ ggplot(data = df, aes(x = phenotype, y = count, fill = diagnosis))+
                                       `CD68+` = "Mean cell density / mm2",
                                       `CD68+CD163+` = "Mean cell density / mm2")))+
   scale_fill_manual(name = "Diagnosis", 
-                    breaks = c("MFS", "USTS"), 
+                    breaks = c("MFS", "UPS"), 
                     values = c("darkorchid", "darkgoldenrod3"))+
   theme_bw()+
   theme(panel.grid = element_blank(),
@@ -49,7 +49,7 @@ ggplot(data = df, aes(x = phenotype, y = count, fill = diagnosis))+
 # Plot the heatmap showing the association between macrophage and T cell infiltration
 # Create the row annotation for the samples
 ha_1 <- rowAnnotation(df = ann_row, 
-                      col = list(Diagnosis = c("MFS" = "darkorchid", "USTS" = "darkgoldenrod3")),
+                      col = list(Diagnosis = c("MFS" = "darkorchid", "UPS" = "darkgoldenrod3")),
                       na_col = "white")
 
 

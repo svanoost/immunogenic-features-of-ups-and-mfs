@@ -10,7 +10,7 @@ library(ComplexHeatmap)
 library(circlize)
 
 ### Load data ####
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IMC_heatmap_boxplots.RData")
+load("../analysis_files/IMC_heatmap_boxplots.RData")
 
 #### Figure 2 ####
 # Plot the relative abundance heatmap
@@ -23,7 +23,7 @@ draw(ht_list, row_title = "Phenotypes", row_title_gp = gpar(font = 1, fontsize =
 ggplot(data = rel_counts, aes(x = pheno_factor, y = rel_counts, fill = Diagnosis))+
   geom_boxplot()+
   theme_bw()+
-  scale_fill_manual(breaks = c("MFS", "USTS"), values = c("darkorchid", "darkgoldenrod3"))+
+  scale_fill_manual(breaks = c("MFS", "UPS"), values = c("darkorchid", "darkgoldenrod3"))+
   scale_x_discrete(labels = NULL)+
   xlab(NULL)+
   ylab("Relative abundance (%)")+

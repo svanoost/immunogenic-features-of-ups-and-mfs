@@ -11,14 +11,14 @@ library(circlize)
 library(viridis)
 
 #### Load data ####
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/ICR_and_SIC_clusters.RData")
+load("../analysis_files/ICR_and_SIC_clusters.RData")
 
 # Assign colors for the heatmap annotations and the bar plots
 anno_colors <- list(Diagnosis = c("DDLPS" = viridis(9)[1], 
                                    "MFS" = "darkorchid",
                                    "STLMS" = viridis(9)[7],
                                    "ULMS" = viridis(9)[9],
-                                   "USTS" = "darkgoldenrod3",
+                                   "UPS" = "darkgoldenrod3",
                                    "MPNST" = viridis(9)[3],
                                    "SS" = viridis(9)[5]),
                      Dataset = c("LCCO" = "black",

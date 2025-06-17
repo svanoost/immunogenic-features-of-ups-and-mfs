@@ -14,14 +14,14 @@ master.location <- setwd(master.location)
 
 #### Load LCCO data ####
 # Read raw gene expression count data (LCCO)
-gene_expr <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/raw_counts_STS.tsv", 
+gene_expr <- read.delim("../input_files/raw_counts_STS.tsv", 
                         sep = "\t", header = TRUE)
 
 # Add a column with Ensembl gene IDs as row names
 gene_expr$ensembl_gene_id <- row.names(gene_expr)
 
 # Load the design file containing sample metadata for LCCO
-design_STS <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/design_file_STS.tsv", 
+design_STS <- read.delim("../input_files/design_file_STS.tsv", 
                          sep = "\t", header = TRUE)
 
 # Verify that sample IDs in the count table match those in the design file
@@ -47,7 +47,7 @@ gene_expr <- left_join(gene_expr,
 
 #### Load and prepare TCGA data ####
 # Load preprocessed TCGA SARC gene expression data
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/TCGA_SARC_Processed.RData")
+load("../input_files/TCGA_SARC_Processed.RData")
 
 # Convert TCGA gene metadata to a data frame and standardize column names
 Des <- as.data.frame(Des)
@@ -106,7 +106,7 @@ tcga_ids <- substr(tcga_ids, 1, 15)
 colnames(RNA_comb)[24:288] <- tcga_ids
 
 # Filter RNA_comb to retain 206 revised TCGA samples
-revised_samples <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/revised_TCGA_samplelist.tsv", 
+revised_samples <- read.delim("../input_files/revised_TCGA_samplelist.tsv", 
                               header = TRUE)
 
 all_sample_ids <- c(design_STS$L_ID, revised_samples$L_ID)
@@ -114,4 +114,4 @@ RNA_comb <- RNA_comb[, colnames(RNA_comb) %in% all_sample_ids]
 
 #### Save combined data ####
 # Save the merged and filtered count tables
-save(RNA_comb, file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/Combined_Filtered_Counttables_revisedTCGA_LCCO_TPM.RData")
+save(RNA_comb, file = "../analysis_files/Combined_Filtered_Counttables_revisedTCGA_LCCO_TPM.RData")

@@ -12,7 +12,7 @@ library(survminer)
 master.location <- setwd(master.location)
 
 #### Load data ####
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IF_survival_groups.RData")
+load("../analysis_files/IF_survival_groups.RData")
 
 #### Figure 3C ####
 # Perform the metastasis-free survival analysis for the T cell groups in myxofibrosarcomas
@@ -40,9 +40,9 @@ ggsurvplot(fit,
 )+
   xlab(label = "Time (months)")
 
-# Perform the metastasis-free survival analysis for the T cell groups in USTS
+# Perform the metastasis-free survival analysis for the T cell groups in UPS
 fit <- survfit(Surv(MFS, status_MFS) ~ Tcell_groups, 
-               data = surv_Tcells[surv_Tcells$diagnosis == "USTS",])
+               data = surv_Tcells[surv_Tcells$diagnosis == "UPS",])
 
 # Check the summary of the survival analysis
 fit
@@ -56,7 +56,7 @@ ggsurvplot(fit,
            legend.labs = c("T cell high", "T cell low"),
            font.legend = c(12),
            risk.table.font = c(5),
-           title = "Metastasis-free survival in USTS",
+           title = "Metastasis-free survival in UPS",
            legend.title = "",
            censor.size = 6,
            xlim = c(0, 90), # use 90 months as max
@@ -93,7 +93,7 @@ ggsurvplot(fit,
 
 # Perform the metastasis-free survival analysis for the double positive macrophage groups in myxofibrosarcomas
 fit <- survfit(Surv(MFS, status_MFS) ~ CD68_double_groups, 
-               data = surv_macrophages[surv_macrophages$diagnosis == "USTS",])
+               data = surv_macrophages[surv_macrophages$diagnosis == "UPS",])
 
 # Check the summary of the survival analysis
 fit
@@ -107,7 +107,7 @@ ggsurvplot(fit,
            legend.labs = c("CD68+CD163+ high", "CD68+CD163+ low"),
            font.legend = c(12),
            risk.table.font = c(5),
-           title = "Metastasis-free survival in USTS",
+           title = "Metastasis-free survival in UPS",
            legend.title = "",
            censor.size = 6,
            xlim = c(0, 90), # use 90 months as max

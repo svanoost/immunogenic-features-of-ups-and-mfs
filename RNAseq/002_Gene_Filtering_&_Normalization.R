@@ -15,10 +15,10 @@ master.location <- setwd(master.location)
 
 #### Load data ####
 # Load TPM count table
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/Combined_Filtered_Counttables_revisedTCGA_LCCO_TPM.RData")
+load("../analysis_files/Combined_Filtered_Counttables_revisedTCGA_LCCO_TPM.RData")
 
 # Load gene information (metadata)
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/GeneInfo.Rdata")
+load("../input_files/GeneInfo.Rdata")
 geneInfo <- as.data.frame(geneInfo)
 geneInfo <- geneInfo[!is.na(geneInfo[, 1]), ]                        # Remove genes without associated information
 
@@ -61,7 +61,7 @@ dim(expression.filtered)                                               # Check d
 
 #### Save filtered data ####
 # Save the filtered expression matrix for future use
-save(expression_filtered, file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/Filtered_Gene_Expression_Matrix.RData")
+save(expression_filtered, file = "../analysis_files/Filtered_Gene_Expression_Matrix.RData")
 
 #### Normalization with EDAseq ####
 # Create a SeqExpressionSet object for normalization
@@ -95,4 +95,4 @@ RNASeq.QN.LOG2 <- log(RNASeq.NORM.quantiles + 1, 2)
 
 #### Save normalized data ####
 # Save the normalized expression matrix for future use
-save(RNASeq.QN.LOG2, file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/Log2_Quantile_Normalized_Expression.RData")
+save(RNASeq.QN.LOG2, file = "../analysis_files/Log2_Quantile_Normalized_Expression.RData")

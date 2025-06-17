@@ -15,15 +15,15 @@ master.location <- setwd(master.location)
 
 #### Load data ####
 # Previously generated data frame with the cell counts
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IMC_cell_counts_with_annotation.RData")
+load("../analysis_files/IMC_cell_counts_with_annotation.RData")
 df[df$phenotype == "Vessels", "clusters"] <- "Rest"
 
 #  design file with the sample annotations
-design_file <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/IMC_sample_annotation.tsv", 
+design_file <- read.delim("../input_files/IMC_sample_annotation.tsv", 
                           header = TRUE)
 
 # data frame with the identified phenotypes and cell types
-phenotypes <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/phenotype_annotations.tsv", 
+phenotypes <- read.delim("../input_files/phenotype_annotations.tsv", 
                          header = TRUE)
 
 #### Create heatmap annotation data frames ####
@@ -75,7 +75,7 @@ pheno_order <- c("KI67_Tcells", "CD8_KI67_Tcells", "Tcells", "CD8_Tcells", "CD57
                  "HLADR_DCs", "CD11c_HLADR_DCs")                                            # Dendritic cells
 
 # Create the annotation list and colors for the heatmap
-anno_colors <- list(Diagnosis = c("USTS" = "darkgoldenrod3", "MFS" = "darkorchid"),
+anno_colors <- list(Diagnosis = c("UPS" = "darkgoldenrod3", "MFS" = "darkorchid"),
                     response = c("Good" = "#1a9641", "Poor" = "#d7191c"),
                     grade_numeric = c("1" = "#ffff99", "2" = "#99ccff", "3" = "#3333ff"),
                     ICR = c("High" = "#E41A1C", "Medium" = "#4DAF4A", "Low" = "#377EB8"))
@@ -241,4 +241,4 @@ rel_counts$cluster_factor <- factor(rel_counts$clusters, levels = c("Tcells", "I
 
 #### Save data ####
 # Heatmap & data for boxplots
-save(ht_list, rel_counts, file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IMC_heatmap_boxplots.RData")
+save(ht_list, rel_counts, file = "../analysis_files/IMC_heatmap_boxplots.RData")

@@ -13,10 +13,10 @@ master.location <- setwd(master.location)
 
 #### Load data ####
 # Load preprocessed and log2 quantile-normalized gene expression data.
-load("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/Log2_Quantile_Normalized_Expression.RData")
+load("../analysis_files/Log2_Quantile_Normalized_Expression.RData")
 
 # Load metadata describing samples (e.g., diagnosis, dataset) and set sample IDs as row names.
-design_all <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/design_file_LCCO_TCGA.tsv", header = TRUE)
+design_all <- read.delim("../input_files/design_file_LCCO_TCGA.tsv", header = TRUE)
 row.names(design_all) <- design_all$L_ID
 
 #### Batch correction ####
@@ -102,7 +102,7 @@ per_subtype_SIC <- design_all[design_all$grade != "low",] %>%
 per_subtype_SIC$SIC <- factor(per_subtype_SIC$SIC, levels = c("E", "D", "C", "B", "A"))
 
 # Assign a specific order to the Diagnosis categories to match a desired sequence
-per_subtype_SIC$Diagnosis_factor <- factor(per_subtype_SIC$Diagnosis, levels = c("USTS", "MFS", 
+per_subtype_SIC$Diagnosis_factor <- factor(per_subtype_SIC$Diagnosis, levels = c("UPS", "MFS", 
                                                                                  "DDLPS",
                                                                                  "STLMS", "ULMS",
                                                                                  "MPNST",
@@ -119,7 +119,7 @@ per_subtype_SIC_total <- design_all[design_all$grade != "low",] %>%
   mutate(perc = round(n / total * 100, 2))              # Calculate percentage for each SIC
 
 #### Save aggregated percentages of SIC distribution ####
-write.table(per_subtype_SIC_total, "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/output_files/SIC_percentages.txt", 
+write.table(per_subtype_SIC_total, "../output_files/SIC_percentages.txt", 
             row.names = FALSE, sep = "\t")
 
 #### Calculate the distribution of all ICR clusters across both datasets ####
@@ -137,7 +137,7 @@ per_subtype_ICR <- design_all[design_all$grade != "low",] %>%
 per_subtype_ICR$ICR <- factor(per_subtype_ICR$ICR, levels = c("High", "Medium", "Low"))
 
 # Assign a specific order to the Diagnosis categories to match a desired sequence
-per_subtype_ICR$Diagnosis_factor <- factor(per_subtype_ICR$Diagnosis, levels = c("USTS", "MFS", 
+per_subtype_ICR$Diagnosis_factor <- factor(per_subtype_ICR$Diagnosis, levels = c("UPS", "MFS", 
                                                                          "DDLPS",
                                                                          "STLMS", "ULMS",
                                                                          "MPNST",
@@ -158,9 +158,9 @@ per_subtype_ICR_total <- design_all[design_all$grade != "low",] %>%
   mutate(perc = round(n/total*100, 2))                  # Calculate percentage for each ICR cluster
 
 #### Save aggregated percentages of ICR clusters ####
-write.table(per_subtype_ICR_total, "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/output_files/ICR_percentages.txt", 
+write.table(per_subtype_ICR_total, "../output_files/ICR_percentages.txt", 
             row.names = FALSE, sep = "\t")
 
 #### Save data for Figure 1 and Supplementary Figure 2
 save(design_all, Density.ICR, Density.MCP, per_subtype_SIC, per_subtype_ICR, 
-     file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/ICR_and_SIC_clusters.RData")
+     file = "../analysis_files/ICR_and_SIC_clusters.RData")

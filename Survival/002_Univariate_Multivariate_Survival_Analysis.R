@@ -12,10 +12,10 @@ library(survival)
 master.location <- setwd(master.location)
 
 # Load clinical data of the whole cohort
-clinical_data <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/STS_clinical_final.txt", header = TRUE)
+clinical_data <- read.delim("../input_files/STS_clinical_final.txt", header = TRUE)
 
 #### Univariate analysis ####
-# No clinical characteristics were found significant for USTS
+# No clinical characteristics were found significant for UPS
 # Analysis was performed for: 
 # Tumor size (numeric), 
 # Gender at birth (F/M), 

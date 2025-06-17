@@ -13,10 +13,10 @@ master.location <- setwd(master.location)
 
 #### Load data ####
 # Load T cell and macrophage counts from the IF and double IHC stainings
-cell_counts <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/IF_phenotype_counts.tsv", header = TRUE)
+cell_counts <- read.delim("../input_files/IF_phenotype_counts.tsv", header = TRUE)
 
 # Load clinical data of the whole cohort
-clinical_data <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/STS_clinical_data.tsv", header = TRUE)
+clinical_data <- read.delim("../input_files/STS_clinical_data.tsv", header = TRUE)
 
 # Reshape the cell count data from wide to long format for analysis
 df <- melt(cell_counts, id.vars = "phenotype", variable.name = "L_ID", value.name = "count")
@@ -32,22 +32,22 @@ df <- df[df$phenotype %in% keep,]
 df$pheno_factor <- factor(df$phenotype, levels = c("total_Tcells", "perc_PD1_CD4", 
                                                                  "perc_PD1_CD8", "CD68+", "CD68+CD163+"))
 # Perform unpaired t-tests ####
-# Create data frame for testing myxofibrosarcoma vs USTS
-test <- data.frame(phenotype = NA, mean.MFS = NA, mean.USTS = NA, t.test = NA, p.val = NA)
+# Create data frame for testing myxofibrosarcoma vs UPS
+test <- data.frame(phenotype = NA, mean.MFS = NA, mean.UPS = NA, t.test = NA, p.val = NA)
 
 # Loop through the different phenotypes
 for(i in 1:length(keep)){
   the_test <- t.test(df[df$diagnosis == "MFS" & df$phenotype == keep[i], "count"], 
-                     df[df$diagnosis == "USTS" & df$phenotype == keep[i], "count"])
+                     df[df$diagnosis == "UPS" & df$phenotype == keep[i], "count"])
   test[i, "phenotype"] = keep[i]
   test[i, "mean.MFS"] = mean(df[df$diagnosis == "MFS" & df$phenotype == keep[i], "count"], na.rm = TRUE)
-  test[i, "mean.USTS"] = mean(df[df$diagnosis == "USTS" & df$phenotype == keep[i], "count"], na.rm = TRUE)
+  test[i, "mean.UPS"] = mean(df[df$diagnosis == "UPS" & df$phenotype == keep[i], "count"], na.rm = TRUE)
   test[i, "t.test"] = the_test$statistic
   test[i, "p.val"] = the_test$p.value
 }
 
 # Save the statistical test results
-write.table(test, "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/output_files/Statistics_IF_phenotypes.txt",
+write.table(test, "../output_files/Statistics_IF_phenotypes.txt",
             sep = "\t", row.names = FALSE)
 
 # Perform unpaired t-test to compare PD-1 positivity between CD8- and CD8+ T cells
@@ -61,7 +61,7 @@ test_PD1[1, "t.test"] = the_test$statistic
 test_PD1[1, "p.val"] = the_test$p.value
 
 # Save the statistical test results
-write.table(test_PD1, "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/output_files/Statistics_IF_PD1.txt",
+write.table(test_PD1, "../output_files/Statistics_IF_PD1.txt",
             sep = "\t", row.names = FALSE)
 
 #### Define groups based on median densities for survival analysis ####
@@ -75,14 +75,14 @@ groups <- left_join(groups[, c("L_ID", "CD68+", "CD68+CD163+", "total_Tcells")],
                        clinical_data[, c("L_ID", "diagnosis")])
 
 # Compute median T cell density for both subtypes
-USTS_median <- median(groups[groups$diagnosis == "USTS", "total_Tcells"], na.rm = TRUE)
+UPS_median <- median(groups[groups$diagnosis == "UPS", "total_Tcells"], na.rm = TRUE)
 MFS_median <- median(groups[groups$diagnosis == "MFS", "total_Tcells"], na.rm = TRUE)
 
 # Set all samples at "low"
 groups$Tcell_groups <- "Low"
 
 # Assign "high" to samples above the median
-groups[groups$diagnosis == "USTS" & groups$total_Tcells > USTS_median, "Tcell_groups"] <- "High"
+groups[groups$diagnosis == "UPS" & groups$total_Tcells > UPS_median, "Tcell_groups"] <- "High"
 groups[groups$diagnosis == "MFS" & groups$total_Tcells > MFS_median, "Tcell_groups"] <- "High"
 
 # Merge groups back to clinical data
@@ -93,27 +93,27 @@ clinical_data <- left_join(clinical_data, groups[, c("L_ID", "Tcell_groups")])
 groups <- groups[!is.na(groups$`CD68+`),]
 
 # Compure median single positive macrophage counts for each subtype
-USTS_median_single <- median(groups[groups$diagnosis == "USTS", "CD68+"], na.rm = TRUE)
+UPS_median_single <- median(groups[groups$diagnosis == "UPS", "CD68+"], na.rm = TRUE)
 MFS_median_single <- median(groups[groups$diagnosis == "MFS", "CD68+"], na.rm = TRUE)
 
 # Set all samples at "low"
 groups$CD68_single_groups <- "Low"
 
 # Assign "high" to samples above the median
-groups[groups$diagnosis == "USTS" & groups$`CD68+` > USTS_median_single, 
+groups[groups$diagnosis == "UPS" & groups$`CD68+` > UPS_median_single, 
        "CD68_single_groups"] <- "High"
 groups[groups$diagnosis == "MFS" & groups$`CD68+` > MFS_median_single, 
        "CD68_single_groups"] <- "High"
 
 # Compute median double positive macrophage counts for each subtype
-USTS_median_double <- median(groups[groups$diagnosis == "USTS", "CD68+CD163+"], na.rm = TRUE)
+UPS_median_double <- median(groups[groups$diagnosis == "UPS", "CD68+CD163+"], na.rm = TRUE)
 MFS_median_double <- median(groups[groups$diagnosis == "MFS", "CD68+CD163+"], na.rm = TRUE)
 
 # Set all samples at "low"
 groups$CD68_double_groups <- "Low"
 
 # Assign "high" to samples above the median
-groups[groups$diagnosis == "USTS" & groups$`CD68+CD163+` > USTS_median_double, 
+groups[groups$diagnosis == "UPS" & groups$`CD68+CD163+` > UPS_median_double, 
        "CD68_double_groups"] <- "High"
 groups[groups$diagnosis == "MFS" & groups$`CD68+CD163+` > MFS_median_double, 
        "CD68_double_groups"] <- "High"
@@ -124,7 +124,7 @@ clinical_data <- left_join(clinical_data,
 
 # Save the assigned survival groups separately
 write.table(clinical_data[, c("L_ID", "diagnosis", "Tcell_groups", "CD68_single_groups", "CD68_double_groups")], 
-            "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/output_files/IF_survival_groups.txt",
+            "../output_files/IF_survival_groups.txt",
             sep = "\t", row.names = FALSE)
 
 # Separate the clinical data for further analysis
@@ -166,12 +166,12 @@ for(j in 1: nrow(Density.Z))  {
 #### Save data ####
 # Save the data for the cell count boxplots
 save(df, 
-     file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IF_cell_counts_boxplots.RData")
+     file = "../analysis_files/IF_cell_counts_boxplots.RData")
 
 # Save the data for the cell count heatmap
 save(ann_row, Density.Z, 
-     file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IF_cell_counts_heatmap.RData")
+     file = "../analysis_files/IF_cell_counts_heatmap.RData")
 
 # Save data for the survival analysis with the assigned groups
 save(surv_Tcells, surv_macrophages, 
-     file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IF_survival_groups.RData")
+     file = "../analysis_files/IF_survival_groups.RData")

@@ -13,15 +13,15 @@ master.location <- setwd(master.location)
 
 #### Load data ####
 # data frame with the cell counts for all samples
-cell_counts <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/IMC_phenotype_counts.tsv", 
+cell_counts <- read.delim("../input_files/IMC_phenotype_counts.tsv", 
                           header = TRUE)
 
 #  design file with the sample annotations
-design_file <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/IMC_sample_annotation.tsv", 
+design_file <- read.delim("../input_files/IMC_sample_annotation.tsv", 
                           header = TRUE)
 
 # data frame with the identified phenotypes and cell types
-phenotypes <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/phenotype_annotations.tsv", 
+phenotypes <- read.delim("../input_files/phenotype_annotations.tsv", 
                          header = TRUE)
 
 #### Merge data frames and prepare for visualization ####
@@ -36,7 +36,7 @@ df <- left_join(design_file, df, "L_ID")
 df <- left_join(df, phenotypes, "phenotype")
 
 # Make a factor of the grading for visualization
-df$grade <- factor(df$grade, levels = c("Low_MFS", "High_MFS", "High_USTS"))
+df$grade <- factor(df$grade, levels = c("Low_MFS", "High_MFS", "High_UPS"))
 
 # Group all phenotypes from major cell populations and sum the cell counts
 summed_counts <- df[, c("L_ID", "Diagnosis", "grade", "count", "cell_type")] %>% 
@@ -51,12 +51,12 @@ summed_counts$cell_type <- factor(summed_counts$cell_type, levels = c("Bcells", 
                                                                       "Vessels", "Tumor"))
 
 # Specify the comparisons to be made for statistical testing
-my_comparisons <- list( c("Low_MFS", "High_MFS"), c("High_MFS", "High_USTS") )
+my_comparisons <- list( c("Low_MFS", "High_MFS"), c("High_MFS", "High_UPS") )
 
 #### Save data ####
 # save data for Supplementary figure 3A
 save(summed_counts, my_comparisons, 
-     file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IMC_summed_cell_populations.RData")
+     file = "../analysis_files/IMC_summed_cell_populations.RData")
 
 # save data for figure 2
-save(df, file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/IMC_cell_counts_with_annotation.RData")
+save(df, file = "../analysis_files/IMC_cell_counts_with_annotation.RData")

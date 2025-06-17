@@ -12,10 +12,10 @@ library(ggpubr)
 master.location <- setwd(master.location)
 
 #### Load data ####
-clinical_data <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/STS_clinical_data.tsv", header = TRUE)
+clinical_data <- read.delim("../input_files/STS_clinical_data.tsv", header = TRUE)
 
 # Assign colors for the figures
-anno_colors <- list(diagnosis = c("USTS" = "darkgoldenrod3", "MFS" = "darkorchid"),
+anno_colors <- list(diagnosis = c("UPS" = "darkgoldenrod3", "MFS" = "darkorchid"),
                      response = c("Good" = "#1A9641", "Poor" = "#D7191C"))
 
 #### Supplementary figure 1A ####

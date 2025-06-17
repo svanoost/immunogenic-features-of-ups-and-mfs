@@ -13,15 +13,15 @@ master.location <- setwd(master.location)
 
 #### Load data ####
 # data frame with the cell counts for all samples
-cell_counts <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/IMC_phenotype_counts.tsv", 
+cell_counts <- read.delim("../input_files/IMC_phenotype_counts.tsv", 
                           header = TRUE)
 
 #  design file with the sample annotations of pre vs post 
-design_file <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/IMC_pre_post_sample_annotation.tsv", 
+design_file <- read.delim("../input_files/IMC_pre_post_sample_annotation.tsv", 
                           header = TRUE)
 
 # data frame with the identified phenotypes and cell types
-phenotypes <- read.delim("I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/input_files/phenotype_annotations.tsv", 
+phenotypes <- read.delim("../input_files/phenotype_annotations.tsv", 
                          header = TRUE)
 
 #### Merge data frames and prepare for visualization ####
@@ -74,24 +74,24 @@ signif <- test[test$FDR < 0.05, "phenotype"]
 signif                                         # no significant changes were identified in myxofibrosarcoma
 
 # Save the statistics of the pre- vs post-treatment cell densities
-write.table(test, "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/output_files/MFS_Statistics_Pre_vs_Post_Phenotypes.txt",
+write.table(test, "../output_files/MFS_Statistics_Pre_vs_Post_Phenotypes.txt",
             sep = "\t", row.names = FALSE)
 
-# Perform paired t-test with a Benjamini-Hochberg correction for USTS ####
+# Perform paired t-test with a Benjamini-Hochberg correction for UPS ####
 # Create data frame for testing
 test <- data.frame(diagnosis = NA, phenotype = NA, mean.untreated = NA, mean.treated = NA, t.test = NA, p.val = NA)
 
 # Loop through the different phenotypes
 for(i in 1:length(phenotype_list)){
-  the_test <- t.test(df[df$Diagnosis == "USTS" & df$phenotype == phenotype_list[i] &
+  the_test <- t.test(df[df$Diagnosis == "UPS" & df$phenotype == phenotype_list[i] &
                                  df$status == "untreated", "count"], 
-                     df[df$Diagnosis == "USTS" & df$phenotype == phenotype_list[i] &
+                     df[df$Diagnosis == "UPS" & df$phenotype == phenotype_list[i] &
                                  df$status == "treated", "count"], paired = TRUE)
-  test[i, "diagnosis"] = "USTS"
+  test[i, "diagnosis"] = "UPS"
   test[i, "phenotype"] = phenotype_list[i]
-  test[i, "mean.untreated"] = mean(df[df$Diagnosis == "USTS" & df$phenotype == phenotype_list[i] &
+  test[i, "mean.untreated"] = mean(df[df$Diagnosis == "UPS" & df$phenotype == phenotype_list[i] &
                                 df$status == "untreated", "count"])
-  test[i, "mean.treated"] = mean(df[df$Diagnosis == "USTS" & df$phenotype == phenotype_list[i] &
+  test[i, "mean.treated"] = mean(df[df$Diagnosis == "UPS" & df$phenotype == phenotype_list[i] &
                                 df$status == "treated", "count"])
   test[i, "t.test"] = the_test$statistic
   test[i, "p.val"] = the_test$p.value
@@ -100,15 +100,15 @@ for(i in 1:length(phenotype_list)){
 # Perform correction for multiple comparisons
 test$FDR <- p.adjust(test$p.val, method = "fdr", n = nrow(test))
 
-# Create separate vector with the significant phenotypes in USTS
+# Create separate vector with the significant phenotypes in UPS
 signif <- test[test$FDR < 0.05, "phenotype"]
 signif
 
 # Save the statistics of the pre- vs post-treatment cell densities
-write.table(test, "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/output_files/USTS_Statistics_Pre_vs_Post_Phenotypes.txt",
+write.table(test, "../output_files/UPS_Statistics_Pre_vs_Post_Phenotypes.txt",
             sep = "\t", row.names = FALSE)
 
 #### Save data ####
 # Save the data for paired boxplots 
 save(df, signif, myeloid, Tcells, 
-     file = "I:/BEEN/Siddh/LCCO/Git_repositories/STS_final/analysis_files/Pre_vs_Post_boxplots.RData")
+     file = "../analysis_files/Pre_vs_Post_boxplots.RData")
