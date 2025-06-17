@@ -1,5 +1,5 @@
 ## Description
-This is the repository for the scripts used in the study "Divergent Therapeutic and Prognostic Impacts of Immunogenic Features in Undifferentiated Soft Tissue Sarcoma and Myxofibrosarcoma"
+This is the repository for the scripts used in the study "Divergent Therapeutic and Prognostic Impacts of Immunogenic Features in Undifferentiated Pleomorphic Sarcoma and Myxofibrosarcoma"
 
 ## This repository has the following structure:
 1. input_files - .tsv & .RData files containing the necessary input to perform the analysis e.g. annotation files and processed data files.
