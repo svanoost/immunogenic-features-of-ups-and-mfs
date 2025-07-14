@@ -1,5 +1,5 @@
 ## Description
-This is the repository for the scripts used in the study "Divergent Therapeutic and Prognostic Impacts of Immunogenic Features in Undifferentiated Pleomorphic Sarcoma and Myxofibrosarcoma"
+This is the repository for the scripts used in the study "Divergent therapeutic and prognostic impacts of immunogenic geatures in undifferentiated pleomorphic sarcoma and myxofibrosarcoma", _Cancer Immunol Immunother_ (2025), https://doi.org/10.1007/s00262-025-04123-y
 
 ## This repository has the following structure:
 1. input_files - .tsv & .RData files containing the necessary input to perform the analysis e.g. annotation files and processed data files.
@@ -9,8 +9,8 @@ This is the repository for the scripts used in the study "Divergent Therapeutic 
 5. Survival - scripts used for analysing survival data & generating the figures. Actual survival data can be requested.
 
 ## Authors
-S. van Oost, D.M. Meijer, Z.B. Erdem, M.E. IJsselsteijn, J. Roelands, S. Lam, M.S. Boejharat, B.E.M.W. van den Akker, R. van der Breggen, I.H. Briaire-de Bruijn, L.J.A.C. Hawinkels, A.A. Kruiswijk, M. van der Ploeg, P.M. Wijers-Koster, R.L. Haas, M.A.J. van den Sande, N.F.C.C. de Miranda, J.V.M.G. Bovee
+S. van Oost, D.M. Meijer, Z.B. Erdem, M.E. IJsselsteijn, J. Roelands, S. Lam, M.S. Boejharat, B.E.W.M. van den Akker, R. van der Breggen, I.H. Briaire-de Bruijn, L.J.A.C. Hawinkels, A.A. Kruiswijk, M. van der Ploeg, P.M. Wijers-Koster, R.L. Haas, M.A.J. van den Sande, N.F.C.C. de Miranda, J.V.M.G. Bovee
 
 ## Data availability
-RNAseq data (GEO): GSE285944;
-Imaging mass cytometry data (BioStudies): S-BIAD1555
+RNAseq data (GEO): https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE285944;
+Imaging mass cytometry data (BioStudies): https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1555
