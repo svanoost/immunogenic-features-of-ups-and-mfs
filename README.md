@@ -1,5 +1,5 @@
 ## Description
-This is the repository for the scripts used in the study "Divergent therapeutic and prognostic impacts of immunogenic geatures in undifferentiated pleomorphic sarcoma and myxofibrosarcoma", _Cancer Immunol Immunother_ (2025), https://doi.org/10.1007/s00262-025-04123-y
+This is the repository for the scripts used in the study "Divergent therapeutic and prognostic impacts of immunogenic features in undifferentiated pleomorphic sarcoma and myxofibrosarcoma", _Cancer Immunol Immunother_ (2025), https://doi.org/10.1007/s00262-025-04123-y
 
 ## This repository has the following structure:
 1. input_files - .tsv & .RData files containing the necessary input to perform the analysis e.g. annotation files and processed data files.
@@ -13,4 +13,5 @@ S. van Oost, D.M. Meijer, Z.B. Erdem, M.E. IJsselsteijn, J. Roelands, S. Lam, M.
 
 ## Data availability
 RNAseq data (GEO): https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE285944;
+
 Imaging mass cytometry data (BioStudies): https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1555
